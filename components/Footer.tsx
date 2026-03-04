@@ -1,17 +1,26 @@
 import Link from 'next/link';
-import { 
-  FaInstagram, 
-  FaTwitterSquare,
-  FaFacebook,
-  FaLinkedin,
-  FaYoutube 
-} from 'react-icons/fa';
+import { Linkedin, Facebook, Instagram } from 'lucide-react';
+import { FaYoutube } from 'react-icons/fa';
+
 import Image from 'next/image';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0a0a0a] text-white py-16 px-6 md:px-12 lg:px-24 font-sans border-t border-gray-900">
-      <div className="max-w-7xl mx-auto">
+    <footer 
+      className="relative text-white py-16 px-6 md:px-12 lg:px-24 font-sans border-t border-gray-900 overflow-hidden"
+      style={{
+        backgroundColor: '#0a0a0a',
+        // This creates a repeating diagonal line pattern
+        backgroundImage: `repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 100px,
+          rgba(255, 255, 225, 0.03) 100px,
+          rgba(255, 255, 225, 0.03) 101px
+        )`
+      }}
+    >
+      <div className="max-w-7xl mx-auto relative z-10">
         
         <div className="flex flex-col lg:flex-row gap-12 mb-16 items-start">
           
@@ -43,26 +52,43 @@ const Footer = () => {
                   className="mb-6 w-[180px] md:w-[220px] lg:w-auto h-auto" 
                 />
                 
-                <div className="flex flex-wrap gap-6 mt-6">
-                  <Link href="https://instagram.com" className="hover:text-pink-500 transition-colors">
-                    <FaInstagram size={24} />
-                  </Link>
-
-                  <Link href="https://twitter.com" className="hover:text-blue-300 transition-colors">
-                    <FaTwitterSquare size={24} />
-                  </Link>
-
-                  <Link href="https://facebook.com" className="hover:text-blue-600 transition-colors">
-                    <FaFacebook size={24} />
-                  </Link>
-
-                  <Link href="https://linkedin.com" className="hover:text-blue-500 transition-colors">
-                    <FaLinkedin size={24} />
-                  </Link>
-
-                  <Link href="https://youtube.com" className="hover:text-red-600 transition-colors">
-                    <FaYoutube size={24} />
-                  </Link>
+                 <div className="mt-12 flex items-center gap-5">
+                  <a
+                    href="#"
+                    className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-black transition-colors hover:bg-white/10"
+                  >
+                    <Linkedin className="h-6 w-6 fill-white text-white" />
+                  </a>
+                  <a
+                    href="#"
+                    className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-black transition-colors hover:bg-white/10"
+                  >
+                    <svg
+                      className="h-5 w-5 fill-current text-white"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+                    </svg>
+                  </a>
+                  <a
+                    href="#"
+                    className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-black transition-colors hover:bg-white/10"
+                  >
+                    <Facebook className="h-6 w-6 fill-white text-white" />
+                  </a>
+                  <a
+                    href="#"
+                    className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-black transition-colors hover:bg-white/10"
+                  >
+                    <Instagram className="h-6 w-6 text-white" />
+                  </a>
+                  <a
+                    href="#"
+                    className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-black transition-colors hover:bg-white/10"
+                  >
+                    <FaYoutube className="h-6 w-6 text-white" />
+                  </a>
                 </div>
               </div>
 
@@ -81,7 +107,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="w-full lg:w-auto bg-[#111] p-6 sm:p-8 rounded-3xl border border-gray-800/50 flex flex-col items-start">
+          <div className="w-full lg:w-auto bg-[#111]/90 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-gray-800/50 flex flex-col items-start">
             
             <div className="mb-6 flex justify-center w-full">
               <Image 

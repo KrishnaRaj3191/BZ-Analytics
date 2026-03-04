@@ -28,7 +28,7 @@ const Header = () => {
   const [selectedLang, setSelectedLang] = useState(languages[0]);
 
   return (
-    <header className="w-full bg-black text-white sticky top-0 z-50">
+    <header className="w-full bg-black text-white font-bold sticky top-0 z-50">
       <div className="max-w-[1660px] mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-12 py-4">
         
         <Image
@@ -40,53 +40,67 @@ const Header = () => {
         />
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center space-x-8 text-sm font-medium">
-          {navItems.map((item) => (
-            <Link key={item} href="#" className="hover:text-orange-500">
-              {item}
-            </Link>
-          ))}
+        <nav className="hidden lg:flex items-center text-sm font-medium">
+  {navItems.map((item) => (
+    <div
+      key={item}
+      className="flex items-center mr-4 group cursor-pointer"
+    >
+      {/* Left Bullet */}
+      <span className="mr-2 text-white transition-colors duration-300 group-hover:text-orange-500">
+        •
+      </span>
 
-          {/* Desktop Language */}
-          <div className="relative">
-            <button
-              onClick={() => setOpenLang(!openLang)}
-              className="flex items-center gap-2"
-            >
-              <img
-                src={selectedLang.flag}
-                className="w-5 h-5 rounded-full"
-                alt="flag"
-              />
-              {selectedLang.label}
-              {openLang ? <FiChevronUp /> : <FiChevronDown />}
-            </button>
+      {/* Text */}
+      <Link
+        href="#"
+        className="transition-colors duration-300 group-hover:text-orange-500"
+      >
+        {item}
+      </Link>
+    </div>
+  ))}
 
-            {openLang && (
-              <div className="absolute right-0 mt-3 bg-black border border-gray-700 rounded-md w-[120px]">
-                {languages.map((lang) => (
-                  <div
-                    key={lang.code}
-                    onClick={() => {
-                      setSelectedLang(lang);
-                      setOpenLang(false);
-                    }}
-                    className="flex items-center gap-2 px-4 py-2 hover:bg-gray-800 cursor-pointer"
-                  >
-                    <img
-                      src={lang.flag}
-                      className="w-4 h-4 rounded-full"
-                      alt={lang.label}
-                    />
-                    {lang.label}
-                  </div>
-                ))}
-              </div>
-            )}
+  {/* Desktop Language */}
+  <div className="relative ml-6">
+    <button
+      onClick={() => setOpenLang(!openLang)}
+      className="flex items-center gap-2"
+    >
+      <img
+        src={selectedLang.flag}
+        className="w-5 h-5 rounded-full"
+        alt="flag"
+      />
+      {selectedLang.label}
+      {openLang ? <FiChevronUp /> : <FiChevronDown />}
+    </button>
+
+    {openLang && (
+      <div className="absolute right-0 mt-3 bg-black border border-gray-700 rounded-md w-[120px]">
+        {languages.map((lang) => (
+          <div
+            key={lang.code}
+            onClick={() => {
+              setSelectedLang(lang);
+              setOpenLang(false);
+            }}
+            className="flex items-center gap-2 px-4 py-2 hover:bg-gray-800 cursor-pointer"
+          >
+            <img
+              src={lang.flag}
+              className="w-4 h-4 rounded-full"
+              alt={lang.label}
+            />
+            {lang.label}
           </div>
-        </nav>
+        ))}
+      </div>
+    )}
+  </div>
+</nav>
 
-        <button className="hidden lg:block border border-white px-5 py-2 hover:text-orange-500 hover:border-orange-500">
+        <button className="hidden lg:block border bg-gray-950 border-white px-6 py-4 cursor-pointer hover:text-orange-500 hover:bg-white">
           Schedule a consultation
         </button>
 

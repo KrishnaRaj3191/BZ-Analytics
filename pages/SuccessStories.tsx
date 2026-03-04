@@ -22,44 +22,51 @@ const SuccessStories = () => {
             <div
               key={index}
               className="group relative bg-[#1E1E1E] rounded-[20px] overflow-hidden 
-                         h-[450px] sm:h-[480px] flex flex-col cursor-pointer transition-colors duration-300 hover:bg-[#252525]"
+                         h-[450px] sm:h-[500px] flex flex-col cursor-pointer transition-colors duration-300 hover:bg-[#252525]"
             >
+              {/* Image Section */}
               <div className="relative w-full h-[220px] sm:h-[260px] overflow-hidden shrink-0">
                 <Image
                   src={card.img}
                   alt={card.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:-translate-y-2"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 />
               </div>
 
-              <div className="p-6 sm:p-8 flex flex-col flex-grow transition-transform duration-500 ease-out group-hover:-translate-y-12 sm:group-hover:-translate-y-16 bg-inherit">
+              {/* Content Section */}
+              {/* Added flex-1 and justify-between to keep button at bottom */}
+              <div className="p-6 sm:p-8 flex flex-col flex-1 justify-between transition-transform duration-500 ease-out group-hover:-translate-y-8 bg-inherit">
                 
-                <h3 className="text-white text-xl sm:text-[26px] font-semibold leading-tight dark:text-white">
-                  {card.title}
-                </h3>
+                <div className="flex flex-col">
+                    <h3 className="text-white text-xl sm:text-[24px] font-semibold leading-tight">
+                    {card.title}
+                    </h3>
 
-                <div className="mt-3 sm:mt-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                  <p className="text-gray-300 text-sm leading-relaxed line-clamp-3">
-                    {card.desc}
-                  </p>
+                    {/* Description - Hidden until hover */}
+                    <div className="mt-3 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                    <p className="text-gray-300 text-sm leading-relaxed line-clamp-3">
+                        {card.desc}
+                    </p>
+                    </div>
                 </div>
 
-                <div className="mt-6 sm:mt-8">
-                  <button className="border border-white/40 text-white px-5 py-2.5 sm:px-7 sm:py-3 text-xs sm:text-sm 
+                {/* Button - Now naturally forced to the bottom of the flex container */}
+                <div className="pt-4">
+                  <button className="border border-white/40 bg-black text-white px-5 py-2.5 sm:px-7 sm:py-3 text-xs sm:text-sm 
                                      hover:bg-white hover:text-orange-500 font-bold cursor-pointer hover:border-white transition-all duration-300">
                     Know More &gt;&gt;
                   </button>
                 </div>
               </div>
 
-              <div className="absolute inset-x-0 bottom-0 h-4 bg-inherit z-10" />
+              {/* Guard rail to hide content shifting below the card */}
+              <div className="absolute inset-x-0 bottom-0 h-2 bg-inherit z-10" />
             </div>
           ))}
         </div>
       </div>
-      
     </section>
   );
 };

@@ -100,9 +100,15 @@ const Header = () => {
   </div>
 </nav>
 
-        <button className="hidden lg:block border bg-gray-950 border-white px-6 py-4 cursor-pointer hover:text-orange-500 hover:bg-white">
-          Schedule a consultation
-        </button>
+ <Link href="#" className="hidden lg:block border relative overflow-hidden border border-white px-6 py-4 group cursor-pointer">
+<span className="absolute top-1/2 left-1/2 w-[400%] h-[400%] bg-white 
+  -translate-x-1/2 -translate-y-1/2 rotate-45 
+  scale-0 group-hover:scale-100 
+  transition-transform duration-300 ease-out"></span>
+<span className="relative z-10 text-white group-hover:text-orange-500 transition-colors duration-300">
+    Schedule a consultation
+  </span>
+</Link>
 
         {/* Hamburger */}
         <button className="lg:hidden" onClick={() => setMenuOpen(!menuOpen)}>

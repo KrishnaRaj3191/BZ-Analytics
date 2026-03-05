@@ -1,40 +1,4 @@
-"use client"
-
-import { useTheme } from "next-themes"
-import { useEffect, useState } from "react"
-import { FiSun, FiMoon } from "react-icons/fi"
-
-export default function ThemeToggle() {
-  const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) return null
-
-  const isDark = theme === "dark"
-
-  return (
-    <button
-      onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="
-        fixed bottom-6 left-6 z-50
-        flex items-center justify-center gap-2
-        px-5 py-2 cursor-pointer hover:text-orange-400
-        rounded-full
-        bg-white/30 dark:bg-black/30
-        backdrop-blur-lg border
-        text-black dark:text-white
-        shadow-lg
-        hover:scale-110 hover:brightness-125
-        transition-all duration-300
-        font-medium
-      "
-    >
-      {isDark ? <FiMoon size={20} /> : <FiSun size={20} />}
-      <span>{isDark ? "Dark" : "Light"}</span>
-    </button>
-  )
-}
+<button className="border border-white/40 bg-black text-white px-5 py-2.5 sm:px-7 sm:py-3 text-xs sm:text-sm 
+                                     hover:bg-white hover:text-orange-500 font-bold cursor-pointer hover:border-white transition-all duration-300">
+                    Know More &gt;&gt;
+                  </button>

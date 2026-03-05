@@ -10,7 +10,6 @@ const Footer = () => {
       className="relative text-white py-16 px-6 md:px-12 lg:px-24 font-sans border-t border-gray-900 overflow-hidden"
       style={{
         backgroundColor: '#0a0a0a',
-        // This creates a repeating diagonal line pattern
         backgroundImage: `repeating-linear-gradient(
           45deg,
           transparent,

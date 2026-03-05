@@ -5,6 +5,7 @@ import "./globals.css";
 import WhatsAppButton from "@/components/WhatsappButton";
 import ScrollProgressCircle from "@/components/ScrollProgressCircle";
 import CustomCursor from "@/components/CustomCursor";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 
 
@@ -27,9 +28,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-<html lang="en">
+<html lang="en"suppressHydrationWarning>
       <body className={`${plusJakarta.className} antialiased`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
             {children}
+            </ThemeProvider>
           <CustomCursor />
            <ScrollProgressCircle />
            <WhatsAppButton />

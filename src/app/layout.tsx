@@ -2,10 +2,10 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import WhatsAppButton from "@/components/WhatsappButton";
-import ScrollProgressCircle from "@/components/ScrollProgressCircle";
-import CustomCursor from "@/components/CustomCursor";
-import { ThemeProvider } from "@/components/ThemeProvider";
+import WhatsAppButton from "@/src/components/WhatsappButton";
+import ScrollProgressCircle from "@/src/components/ScrollProgressCircle";
+import CustomCursor from "@/src/components/CustomCursor";
+import { ThemeProvider } from "@/src/components/ThemeProvider";
 
 
 

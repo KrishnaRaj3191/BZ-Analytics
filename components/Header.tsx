@@ -13,13 +13,7 @@ const languages = [
 ];
 
 const navItems = [
-  "Home",
-  "About Us",
-  "Services",
-  "Success Stories",
-  "Blogs",
-  "Careers",
-  "Contact Us",
+  "Home", "About Us", "Services", "Success Stories", "Blogs", "Careers", "Contact Us",
 ];
 
 const Header = () => {
@@ -31,151 +25,122 @@ const Header = () => {
     <header className="w-full bg-black text-white font-bold sticky top-0 z-50">
       <div className="max-w-[1660px] mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-12 py-4">
         
-        <Image
-          src="/bq.png"
-          alt="BZ"
-          width={120}
-          height={40}
-          className="h-12 w-auto"
-        />
+        <div className="flex-shrink-0">
+          <Image
+            src="/bq.png"
+            alt="Logo"
+            width={120}
+            height={40}
+            className="h-10 md:h-12 w-auto object-contain"
+          />
+        </div>
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center text-sm font-medium">
-  {navItems.map((item) => (
-    <div
-      key={item}
-      className="flex items-center mr-4 group cursor-pointer"
-    >
-      {/* Left Bullet */}
-      <span className="mr-2 text-white transition-colors duration-300 group-hover:text-orange-500">
-        •
-      </span>
+        <nav className="hidden min-[1200px]:flex items-center text-sm font-medium">
+          {navItems.map((item) => (
+            <div key={item} className="flex items-center mr-2 xl:mr-4 group cursor-pointer">
+              <span className="mr-2 text-white transition-colors duration-300 group-hover:text-orange-500 xl:inline hidden">
+                •
+              </span>
+              <Link
+                href="#"
+                className="transition-colors duration-300 group-hover:text-orange-500 whitespace-nowrap"
+              >
+                {item}
+              </Link>
+            </div>
+          ))}
+        </nav>
 
-      {/* Text */}
-      <Link
-        href="#"
-        className="transition-colors duration-300 group-hover:text-orange-500"
-      >
-        {item}
-      </Link>
-    </div>
-  ))}
+        <div className="flex items-center gap-4 lg:gap-6">
+          
+          <div className="relative hidden sm:block">
+            <button
+              onClick={() => setOpenLang(!openLang)}
+              className="flex items-center gap-2 hover:text-orange-500 transition-colors py-2"
+            >
+              <img
+                src={selectedLang.flag}
+                className="w-5 h-5 rounded-full object-cover"
+                alt="flag"
+              />
+              <span className="text-sm">{selectedLang.label}</span>
+              {openLang ? <FiChevronUp /> : <FiChevronDown />}
+            </button>
 
-  {/* Desktop Language */}
-  <div className="relative ml-6">
-    <button
-      onClick={() => setOpenLang(!openLang)}
-      className="flex items-center gap-2"
-    >
-      <img
-        src={selectedLang.flag}
-        className="w-5 h-5 rounded-full"
-        alt="flag"
-      />
-      {selectedLang.label}
-      {openLang ? <FiChevronUp /> : <FiChevronDown />}
-    </button>
-
-    {openLang && (
-      <div className="absolute right-0 mt-3 bg-black border border-gray-700 rounded-md w-[120px]">
-        {languages.map((lang) => (
-          <div
-            key={lang.code}
-            onClick={() => {
-              setSelectedLang(lang);
-              setOpenLang(false);
-            }}
-            className="flex items-center gap-2 px-4 py-2 hover:bg-gray-800 cursor-pointer"
-          >
-            <img
-              src={lang.flag}
-              className="w-4 h-4 rounded-full"
-              alt={lang.label}
-            />
-            {lang.label}
+            {openLang && (
+              <div className="absolute right-0 mt-3 bg-zinc-900 border border-gray-700 rounded-md w-[120px] overflow-hidden shadow-xl z-[60]">
+                {languages.map((lang) => (
+                  <div
+                    key={lang.code}
+                    onClick={() => {
+                      setSelectedLang(lang);
+                      setOpenLang(false);
+                    }}
+                    className="flex items-center gap-2 px-4 py-3 hover:bg-gray-800 cursor-pointer transition-colors"
+                  >
+                    <img src={lang.flag} className="w-4 h-4 rounded-full" alt={lang.label} />
+                    <span className="text-sm">{lang.label}</span>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
-        ))}
+
+          <Link 
+            href="#" 
+            className="hidden min-[1200px]:block relative overflow-hidden border border-white px-6 py-4 group cursor-pointer flex-shrink-0"
+          >
+            <span className="absolute top-1/2 left-1/2 w-[400%] h-[400%] bg-white 
+              -translate-x-1/2 -translate-y-1/2 rotate-45 
+              scale-0 group-hover:scale-100 
+              transition-transform duration-500 ease-out"></span>
+            <span className="relative z-10 text-white group-hover:text-orange-500 transition-colors duration-300 uppercase text-xs tracking-widest">
+              Schedule a consultation
+            </span>
+          </Link>
+
+          <button 
+            className="min-[1200px]:hidden p-2 text-white hover:text-orange-500 transition-colors" 
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? <FaTimes size={28} /> : <FaBars size={28} />}
+          </button>
+        </div>
       </div>
-    )}
-  </div>
-</nav>
 
- <Link href="#" className="hidden lg:block border relative overflow-hidden border border-white px-6 py-4 group cursor-pointer">
-<span className="absolute top-1/2 left-1/2 w-[400%] h-[400%] bg-white 
-  -translate-x-1/2 -translate-y-1/2 rotate-45 
-  scale-0 group-hover:scale-100 
-  transition-transform duration-300 ease-out"></span>
-<span className="relative z-10 text-white group-hover:text-orange-500 transition-colors duration-300">
-    Schedule a consultation
-  </span>
-</Link>
-
-        {/* Hamburger */}
-        <button className="lg:hidden" onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
       {menuOpen && (
-        <div className="lg:hidden bg-black border-t border-gray-800 px-6 pb-6">
-          <div className="flex flex-col gap-6 mt-6 text-sm">
-
+        <div className="min-[1200px]:hidden absolute top-full left-0 w-full bg-black border-t border-gray-800 shadow-2xl">
+          <div className="flex flex-col gap-6 p-8 text-sm">
             {navItems.map((item) => (
               <Link
                 key={item}
                 href="#"
                 onClick={() => setMenuOpen(false)}
-                className="hover:text-orange-500"
+                className="text-lg hover:text-orange-500 transition-colors border-b border-gray-900 pb-2"
               >
                 {item}
               </Link>
             ))}
 
-            {/* Mobile Language */}
-            <div>
-              <button
-                onClick={() => setOpenLang(!openLang)}
-                className="flex items-center justify-between w-full border border-gray-700 px-4 py-2"
-              >
-                <div className="flex items-center gap-2">
-                  <img
-                    src={selectedLang.flag}
-                    className="w-5 h-5 rounded-full"
-                    alt="flag"
-                  />
-                  {selectedLang.label}
-                </div>
-                {openLang ? <FiChevronUp /> : <FiChevronDown />}
-              </button>
-
-              {openLang && (
-                <div className="mt-2 border border-gray-700 rounded-md">
-                  {languages.map((lang) => (
-                    <div
-                      key={lang.code}
-                      onClick={() => {
-                        setSelectedLang(lang);
-                        setOpenLang(false);
-                      }}
-                      className="flex items-center gap-2 px-4 py-2 hover:bg-gray-800 cursor-pointer"
-                    >
-                      <img
-                        src={lang.flag}
-                        className="w-4 h-4 rounded-full"
-                        alt={lang.label}
-                      />
-                      {lang.label}
-                    </div>
-                  ))}
-                </div>
-              )}
+            <div className="sm:hidden mt-2">
+              <p className="text-gray-500 mb-2 uppercase text-xs">Select Language</p>
+              <div className="flex gap-4">
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => setSelectedLang(lang)}
+                    className={`flex items-center gap-2 px-3 py-2 border rounded-md ${selectedLang.code === lang.code ? 'border-orange-500' : 'border-gray-700'}`}
+                  >
+                    <img src={lang.flag} className="w-5 h-5 rounded-full" alt="" />
+                    {lang.label}
+                  </button>
+                ))}
+              </div>
             </div>
 
-            <button className="border border-white py-3 hover:text-orange-500 hover:border-orange-500">
+            <button className="w-full border border-white py-4 mt-4 font-bold tracking-widest hover:bg-white hover:text-black transition-all duration-300 uppercase">
               Schedule a consultation
             </button>
-
           </div>
         </div>
       )}

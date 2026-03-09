@@ -32,7 +32,7 @@ const SuccessStories: React.FC = () => {
 
   return (
     <section className="w-full bg-white dark:bg-black py-10 md:py-20 lg:py-[100px] transition-colors duration-300">
-      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
+      <div className="max-w-[1290px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 xl:gap-10">
           {cards.map((card, index) => (
@@ -59,7 +59,7 @@ const SuccessStories: React.FC = () => {
               <div className="p-5 sm:p-8 flex flex-col flex-1 transition-transform duration-500 ease-out group-hover:-translate-y-8 bg-inherit">
                 
                 <div className="flex-1">
-                  <h3 className="text-black dark:text-white text-lg sm:text-[22px] font-bold leading-tight mb-2 md:mb-3">
+                  <h3 className="text-black dark:text-white text-lg sm:text-[22px] font-extrabold leading-tight mb-2 md:mb-3">
                     {card.title}
                   </h3>
 
@@ -71,7 +71,7 @@ const SuccessStories: React.FC = () => {
                 </div>
 
                 <div className="mt-4 md:mt-6">
-                  <button className="border border-black/10 dark:border-white/20 bg-black text-white px-5 py-2.5 md:px-6 md:py-3 text-[10px] sm:text-xs 
+                  <button className="border border-black/10 dark:border-white bg-black text-white px-5 py-2.5 md:px-6 md:py-3 text-[10px] sm:text-xs 
                                      hover:bg-white hover:text-orange-500 font-bold cursor-pointer transition-all duration-300 
                                      uppercase tracking-wider">
                     Know More &gt;&gt;
@@ -86,16 +86,15 @@ const SuccessStories: React.FC = () => {
       </div>
 
       {mounted && (
-        <div className="fixed bottom-8 left-5 z-50">
+        <div className="fixed bottom-4 left-4 z-50">
           <button
             onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-            className="cursor-pointer border bg-white dark:bg-black border-black/50 dark:border-gray-400/40
-                       px-5 py-2.5 text-[10px] font-bold tracking-[0.2em] rounded-full uppercase 
-                       text-black dark:text-white shadow-lg
-                       transition-all hover:bg-black hover:text-white 
-                       dark:hover:bg-white dark:hover:text-black"
+            className="cursor-pointer border  dark:bg-black border-white dark:border-white
+                       px-3 py-2 text-[14px] font-extrabold 
+                       bg-black dark:text-white shadow-lg
+                       transition-all text-white"
           >
-            {resolvedTheme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+            {resolvedTheme === 'dark' ? 'Light/Dark' : 'Light/Dark'}
           </button>
         </div>
       )}

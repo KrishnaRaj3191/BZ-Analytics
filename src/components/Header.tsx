@@ -28,7 +28,7 @@ const Header = () => {
   const [selectedLang, setSelectedLang] = useState(languages[0]);
 
   return (
-    <header className="w-full bg-black text-white font-bold  top-0 z-50">
+    <header className="w-full bg-black text-white font-bold sticky  top-0 z-50">
       <div className="w-full flex items-center justify-between px-4 lg:px-4 py-4">
 
         {/* Logo */}

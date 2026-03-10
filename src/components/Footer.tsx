@@ -6,17 +6,10 @@ import Image from 'next/image';
 const Footer = () => {
   return (
     <footer
-      className="relative text-white py-16 px-6 md:px-12 lg:px-24 font-sans border-t border-gray-900 overflow-hidden"
-      style={{
-        backgroundColor: '#0a0a0a',
-        backgroundImage: `repeating-linear-gradient(
-          145deg,
-          transparent,
-          transparent 100px,
-          rgba(255, 255, 225, 0.08) 100px,
-          rgba(255, 255, 225, 0.04) 101px
-        )`
-      }}
+className="relative text-white py-12 px-6 md:px-12 lg:px-24 font-sans border-gray-900 overflow-hidden bg-[#101010]" 
+     style={{backgroundImage: `url(/footerbg.png)`
+      
+     }}
     >
       <div className="max-w-7xl mx-auto relative z-10">
 
@@ -33,12 +26,12 @@ const Footer = () => {
 
               <a
                 href="mailto:hello@bzanalytics.ai"
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold hover:text-orange-400 transition-colors"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold hover:text-orange-400 transition-colors"
               >
                 hello@bzanalytics.ai
               </a>
 
-              <div className="w-full h-[1px] bg-gray-800 mt-10"></div>
+              <div className="w-full h-[1px] bg-white/10 mt-10"></div>
             </div>
 
             {/* LINKS SECTION */}

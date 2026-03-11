@@ -115,7 +115,7 @@ const Header = () => {
 
             <span className="absolute top-1/2 left-1/2 w-[400%] h-[400%] bg-white 
             -translate-x-1/2 -translate-y-1/2 rotate-45 
-            scale-0 group-hover:scale-100 
+            scale-0 group-hover:scale-110 
             transition-transform duration-500 ease-out"></span>
 
             <span className="relative z-10 text-white  group-hover:text-orange-500 transition-colors duration-300 font-extrabold  text-[17px] tracking-normal">

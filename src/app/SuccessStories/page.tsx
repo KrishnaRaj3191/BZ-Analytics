@@ -87,20 +87,27 @@ const SuccessStories: React.FC = () => {
         </div>
       </div>
 
-      {/* Theme Toggle */}
       {mounted && (
-        <div className="fixed bottom-4 left-4 z-50">
-          <button
-            onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-            className="cursor-pointer border  dark:bg-black border-white dark:border-white
-                       px-3 py-2 text-[14px] font-extrabold 
-                       bg-black dark:text-white shadow-lg
-                       transition-all text-white"
-          >
-            {resolvedTheme === 'dark' ? 'Light/Dark' : 'Light/Dark'}
-          </button>
-        </div>
-      )}
+  <div className="fixed bottom-4 left-4 z-50">
+    <button
+      onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+      className="group relative cursor-pointer border border-white dark:border-white hover:border-black
+                 px-4 py-2 text-[14px] font-extrabold overflow-hidden
+                 bg-black text-white transition-colors duration-500 shadow-lg"
+    >
+      <span 
+        className="absolute top-1/2 left-1/2 w-[400%] h-[400%] bg-white 
+                   -translate-x-1/2 -translate-y-1/2 rotate-45 
+                   scale-0 group-hover:scale-100 
+                   transition-transform duration-500 ease-out"
+      />
+
+      <span className="relative z-10 group-hover:text-orange-500 transition-colors duration-500">
+        {resolvedTheme === 'dark' ? 'Light/Dark' : 'Light/Dark'}
+      </span>
+    </button>
+  </div>
+)}
     </section>
   );
 };
